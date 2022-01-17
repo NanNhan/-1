@@ -1,0 +1,70 @@
+#include<stdio.h>
+//结构体关键字，sut叫结构体标签 ，struct stu:叫结构体类型
+struct stu //描述一个学生,一些数据
+{
+	//成员变量
+	char name[20];
+	short age;
+	char tele[12];
+	char sex[5];
+}S1,S2,S3;//全局变量
+typedef struct stu //描述一个学生,一些数据
+{
+	//成员变量
+	char name[20];
+	short age;
+	char tele[12];
+	char sex[5];
+}stu;//stu是类型
+int main()
+{
+	struct stu S = {"zhagn",12,233,'nan'};//局部结构体变量
+	stu s1 = {"zhangsan",20,111,'nan'};
+	return 0;
+}
+struct s
+{
+	int a;
+	char c;
+	char arr[20];
+	double d;
+};
+struct t
+{
+	char ch[10];
+	struct s s;
+	char* pc;
+};
+int main()
+{
+	struct t t = { "hehe",{100,'w',"hello world",3.14},"hello"};//结构体套用结构体
+	printf("%s\n", t.ch);
+	printf("%d\n",t.s.a);
+	printf("%s\n", t.pc);
+	return 0;
+}
+typedef struct sut
+{
+	char name[20];
+	int age;
+	int number;
+	char sex[5];
+}stu;
+void print1(stu tem)
+{
+	printf("%s\n",tem.name);
+	printf("%d\n", tem.age);
+	printf("%d\n", tem.number);
+	printf("%s\n", tem.sex);
+}
+void print2(stu* ps)
+{
+	printf("name:%s\n",ps->name);
+}
+int main()
+{
+	stu s = {"zhangsan",13,12221,"man"};
+	print1(s);
+	print2(&s);
+	return 0;
+}
